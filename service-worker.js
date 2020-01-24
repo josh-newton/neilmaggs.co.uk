@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "neilmaggs.co.uk/precache-manifest.f9020635618993dccbb8e5b4e2e2c77e.js"
+  "neilmaggs.co.uk/precache-manifest.aa75b71964ff7479ded38bc6e11fd138.js"
 );
 
 self.addEventListener('message', (event) => {
