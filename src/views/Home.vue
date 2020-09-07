@@ -5,7 +5,6 @@
       @click.prevent="scrollTo('bio')">
       <a href="#work"><i class="fas fa-chevron-down"></i></a>
     </div>
-
     <nav
       id="navbar"
       @click="setNavVisible(!navVisible)"
@@ -46,20 +45,13 @@
     <section id="work" class="content">
       <div>
         <h2>Work</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat
-        nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-        enim ad minim veniam, quis nostrud exercitation ullamco laboris
-        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-        reprehenderit in voluptate velit esse cillum dolore eu fugiat
-        nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Neil has worked with/for... Here is a selection of hist latest work:</p>
+        <div class="articles">
+          <Article
+            v-for="(article, index) in articles"
+            :key="index"
+            :article="article" />
+        </div>
       </div>
       <div class="gallery">
         <div class="image">
@@ -196,17 +188,24 @@
 <script>
 import { gsap } from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import articles from '../data/articles.json';
+// eslint-disable-next-line
+import Article from '../components/Article';
 
 gsap.registerPlugin(ScrollToPlugin);
 
 export default {
   name: 'Home',
+  components: {
+    Article,
+  },
   props: {},
   data() {
     return {
       stickyNavActive: false,
       navLinkActive: null,
       navVisible: false,
+      articles: null,
       offsets: {
         pixelsTop: 60,
         pageY: null,
@@ -223,9 +222,6 @@ export default {
     },
     scrollTo(toElem) {
       this.navLinkActive = toElem;
-      console.log(toElem);
-      // Temportary until I work out use gsap!
-      // window.location.href = `#${toElem}`;
       gsap.to(window, { duration: 0.3, scrollTo: { y: `#${toElem}` }, ease: 'power2' });
     },
     onScroll() {
@@ -250,11 +246,12 @@ export default {
     }
   },
   mounted() {
+    this.articles = articles.slice(0, 6);
     window.addEventListener('scroll', this.onScroll);
     this.offsets.nav = document.getElementById('navbar').offsetTop - this.offsets.pixelsTop;
     this.offsets.bio = document.getElementById('bio').offsetTop - this.offsets.pixelsTop;
     this.offsets.work = document.getElementById('work').offsetTop - this.offsets.pixelsTop;
-    this.offsets.contact = document.getElementById('contact').offsetTop - this.offsets.pixelsTop;
+    this.offsets.contact = document.getElementById('contact').offsetTop - this.offsets.pixelsTop - 350;
   },
 };
 </script>
@@ -528,6 +525,13 @@ section {
     border-bottom: 1px solid #989898;
   }
 
+  .articles {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -50px;
+    justify-content: space-around;
+  }
+
   .gallery {
     margin-top: 40px;
     display: flex;
@@ -552,8 +556,11 @@ section {
 }
 
 #contact {
-  background: #989898;
-  color: #fff;
+  color: #989898;
+  min-height: 250px;
+  h2 {
+    border-bottom: 1px solid #989898;
+  }
 
   .links {
     display: flex;
@@ -564,7 +571,7 @@ section {
 
 
   a, a:visited, a:active, a:focus {
-    color: white;
+    color: #989898;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -573,7 +580,7 @@ section {
   }
 
   a:hover {
-    color: #ddd;
+    color: darken(#989898, 20%);
   }
 
   i {

@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import Home from './components/Home.vue';
+// eslint-disable-next-line
+import Home from './views/Home';
 
 export default {
   name: 'App',

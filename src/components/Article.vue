@@ -1,0 +1,56 @@
+<template>
+  <div class="article">
+    <div class="image">
+      <a :href="article.link" target="_blank"><img :src="article.image"/></a>
+    </div>
+    <div class="title">
+      <h3><a :href="article.link" target="_blank">{{ article.title }}</a></h3>
+    </div>
+    <div class="description">
+      <p>{{ article.description }}</p>
+    </div>
+    <div class="date">
+      <p>{{ article.date }}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default {
+  name: 'Article',
+  props: ['article'],
+};
+</script>
+
+<style scoped lang="scss">
+.article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 400px;
+}
+p {
+  margin-top: 0;
+}
+.title {
+  a, a:visited, a:active, a:focus {
+    color: #272727;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  a:hover {
+    color: lighten(#272727, 50%);
+  }
+}
+.image img {
+  max-width: 350px;
+  border-radius: 3px;
+}
+.date {
+  align-self: flex-start;
+  font-size: 14px;
+}
+</style>
