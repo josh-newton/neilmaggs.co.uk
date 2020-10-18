@@ -32,13 +32,13 @@ opener = urllib.request.build_opener()
 opener.addheaders = [('User-agent', userAgent)]
 urllib.request.install_opener(opener)
 
-baseUrl = 'https://muckrack.com/neil-maggs/articles'
+baseUrl = 'https://authory.com/NeilMaggs'
 
 selectors = {
-    'articles': '.news-story .news-story-title a',
+    'articles': 'a.Profile--article-list-view-title',
     'title': 'meta[property="og:title"]',
     'description': 'meta[property="og:description"]',
-    'date': '.news-story-meta .timeago',
+    'date': '.ArticleList-meta .lora.pr4',
     'image': 'meta[property="og:image"]'
 }
 
@@ -50,6 +50,8 @@ def scrape():
     articles = soup.select(selectors['articles'])
     dates = soup.select(selectors['date'])
 
+    titles = []
+
     for i in range(len(articles)):
         articleLink = articles[i]['href']
 
@@ -58,13 +60,18 @@ def scrape():
         soup = bs4.BeautifulSoup(html, 'lxml')
 
         title = soup.select(selectors['title'])[0]['content']
-        description = soup.select(selectors['description'])[0]['content']
-        image = soup.select(selectors['image'])[0]['content']
-        date = dates[i].text.strip()
 
-        ordered = OrderedDict([("title", title), ("description", description), ("link", articleLink), ("image", image), ("date", date)])
+        if title in titles:
+            print(title)
+            continue
+        else:
+            titles.append(title)
+            description = soup.select(selectors['description'])[0]['content']
+            image = soup.select(selectors['image'])[0]['content']
+            date = dates[i].text
 
-        appendToJsonFile(ordered)
+            ordered = OrderedDict([("title", title), ("description", description), ("link", articleLink), ("image", image), ("date", date)])
+            appendToJsonFile(ordered)
 
 def appendToJsonFile(dictionary):
 	jsonFile.write(json.dumps(dictionary, sort_keys=False, indent=4, ensure_ascii=False, separators=(',', ': ')) + ',\n')
@@ -94,8 +101,12 @@ def downloadImage(link):
         return downloadedImgLoc
 
 def main():
-    jsonFile.write('[\n')
+    jsonFile.write('[')
     scrape()
+    # Remove trailing ',' added by json.dumps
+    jsonFile.seek(0, 2)
+    jsonFile.seek(jsonFile.tell() - 2, 0)
+    jsonFile.truncate()
     jsonFile.write(']')
 
 if __name__ == '__main__':
