@@ -1,6 +1,6 @@
 <template>
   <div id="hero">
-    <div class="image"></div>
+    <!-- <div class="image"></div> -->
     <h1>Neil Maggs</h1>
     <h2>Journalist &middot; Presenter &middot; Host</h2>
   </div>
@@ -19,18 +19,19 @@ export default {
 
 <style scoped lang="scss">
 #hero {
-  height: 100vh;
-  min-height: 900px;
+  height: 946px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
   color: #ffffff;
+  background: url('../assets/hero.png') no-repeat top center;
+  background-size: cover;
 
   .image {
     position: absolute;
-    min-height: 100%;
+    min-height: 946px;
     width: 100%;
     height: auto;
     top: 0;
@@ -45,7 +46,7 @@ export default {
   }
 
   h1 {
-    margin-top: -100px;
+    margin-top: 0px;
     text-transform: uppercase;
     margin-bottom: 20px;
     font-size: 100px;

@@ -1,7 +1,7 @@
 <template>
-  <section id="contact" class="content">
+  <div id="contact" class="content">
+    <h2>Contact</h2>
     <div>
-      <h2>Contact</h2>
       <div class="links">
         <a href="mailto:info@neilmaggs.co.uk">
           <span><i class="fas fa-at"></i></span><span>info@neilmaggs.co.uk</span>
@@ -14,7 +14,7 @@
         </a>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -30,6 +30,7 @@ export default {
 
 <style scoped lang="scss">
 #contact {
+  color: #272727;
   display: flex;
   min-height: 100vh;
   height: auto;
@@ -41,7 +42,7 @@ export default {
 
   &.content {
     justify-content: flex-start;
-    padding: 60px 0;
+    padding: 60px;
 
     > div {
       display: flex;
@@ -52,7 +53,9 @@ export default {
     }
 
     h2 {
-      font-size: 28px;
+      color: #272727;
+      font-size: 36px;
+      text-transform: uppercase;
       margin-top: 0;
       font-weight: normal;
       padding-bottom: 20px;
@@ -60,6 +63,7 @@ export default {
       text-align: center;
       width: 80%;
       align-self: center;
+      border-bottom: 2px solid #272727;
     }
   }
   h2 {
@@ -75,7 +79,7 @@ export default {
 
 
   a, a:visited, a:active, a:focus {
-    color: #989898;
+    color: #272727;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -84,7 +88,7 @@ export default {
   }
 
   a:hover {
-    color: darken(#989898, 20%);
+    color: lighten(#272727, 40%);
   }
 
   i {

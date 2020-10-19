@@ -1,6 +1,6 @@
 <template>
   <div class="article">
-    <div class="image">
+    <div class="image" v-if="article.image">
       <a :href="article.link" target="_blank"><img :src="article.image"/></a>
     </div>
     <div class="title">
@@ -28,13 +28,17 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  max-width: 400px;
+  justify-content: space-between;
+  padding: 30px;
+  width: 450px;
+  max-width: 600px;
+  flex-grow: 1;
 }
 p {
   margin-top: 0;
 }
 .title {
+  text-transform: uppercase;
   a, a:visited, a:active, a:focus {
     color: #272727;
     text-decoration: none;
@@ -46,7 +50,7 @@ p {
   }
 }
 .image img {
-  max-width: 350px;
+  width: 100%;
   border-radius: 3px;
 }
 .date {

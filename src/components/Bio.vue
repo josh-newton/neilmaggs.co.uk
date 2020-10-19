@@ -1,7 +1,7 @@
 <template>
-  <section id="bio" class="content">
+  <div id="bio" class="content">
+    <h2>Bio</h2>
     <div>
-      <h2>Bio</h2>
       <p>Bristol born and raised, Neil Maggs is a descendent of a family of
         ironmongers who used to run a shop on Stapleton Road, Eastville, five
         generations ago. One of four children, Neil was a keen actor and a
@@ -63,13 +63,8 @@
         called Whiteness [insert link].</p>
 
       <br/>
-      <p><b>Awards include:</b><br/><br/>
-      National Community radio show of the year winner - CMA 2017<br/>
-      Best Radio presenter winner - Bristol Diversity Awards<br/>
-      Best presenter nominee - South West Media Mogul Awards - 2018<br/>
-      Best presenter nominee - South West Media Mogul Awards - 2019</p>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -97,25 +92,31 @@ export default {
 
   &.content {
     justify-content: flex-start;
-    padding: 60px 0;
+    padding: 60px;
 
     > div {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: left;
-      width: 60vw;
+      padding: 0 80px;
     }
 
     h2 {
-      font-size: 28px;
+      font-size: 36px;
+      text-transform: uppercase;
       margin-top: 0;
       font-weight: normal;
       padding-bottom: 20px;
-      border-bottom: 1px solid #fff;
       text-align: center;
       width: 80%;
       align-self: center;
+      border-bottom: 2px solid #fff;
+    }
+
+    p {
+      line-height: 26px;
+      font-size: 16px;
     }
   }
 }

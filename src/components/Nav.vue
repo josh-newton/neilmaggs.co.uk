@@ -63,7 +63,8 @@ export default {
 
 <style scoped lang="scss">
 nav {
-
+  position: absolute;
+  width: 100%;
   background: rgba(255, 255, 255, 0);
   display: flex;
   padding: 10px 20px;
@@ -88,11 +89,9 @@ nav {
   }
 
   li {
+    font-size: 18px;
     padding: 0 20px;
-
-    &.active a{
-      color: #7facd0;
-    }
+    transition: color 0.3s;
 
     a {
       color: #1e272e;
@@ -144,7 +143,7 @@ nav {
   }
 
   nav {
-    position: absolute;
+    position: fixed;
     z-index: 100;
     width: 100%;
     right: 0;
@@ -180,6 +179,10 @@ nav {
         }
         &.active {
           background: rgba(0,0,0,0.1);
+
+          a {
+            color: #91332b;
+          }
         }
       }
 

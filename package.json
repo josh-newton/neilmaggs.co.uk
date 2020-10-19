@@ -41,7 +41,16 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {}
+    "rules": {
+      "import/extensions": ["error", "always", { "vue": "never", "js": "never" }]
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".vue"]
+        }
+      }
+    }
   },
   "browserslist": [
     "> 1%",
