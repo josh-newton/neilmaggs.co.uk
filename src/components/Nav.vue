@@ -67,7 +67,7 @@ nav {
   width: 100%;
   background: rgba(255, 255, 255, 0);
   display: flex;
-  padding: 10px 20px;
+  padding: 2em;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   transition: background 0.3s;
@@ -77,21 +77,15 @@ nav {
   }
 
   ul {
-    width: 40%;
-    max-width: 550px;
-    padding: 0;
+    width: 550px;
     list-style: none;
-    height: 100%;
     display: flex;
     justify-content: space-around;
-    align-items: center;
     margin-left: auto;
   }
 
   li {
     font-size: 18px;
-    padding: 0 20px;
-    transition: color 0.3s;
 
     a {
       color: #1e272e;
@@ -139,24 +133,21 @@ nav {
     top: 15px;
     right: 15px;
     z-index: 100;
-
   }
 
   nav {
     position: fixed;
     z-index: 100;
     width: 100%;
-    right: 0;
     height: auto;
     top: -20px !important;
-    padding: 0;
+    padding: 15px 0;
 
     ul {
       position: absolute;
       transform: translateY(-100%);
       width: 100%;
-      max-width: 100vw;
-      height: 100vh;
+      height: calc(100vh + 20px);
       flex-direction: column;
       padding-top: 60px;
       transition: all 0.4s;

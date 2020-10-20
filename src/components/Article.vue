@@ -4,7 +4,7 @@
       <a :href="article.link" target="_blank"><img :src="article.image"/></a>
     </div>
     <div class="title">
-      <h3><a :href="article.link" target="_blank">{{ article.title }}</a></h3>
+      <h4><a :href="article.link" target="_blank">{{ article.title }}</a></h4>
     </div>
     <div class="description">
       <p>{{ article.description }}</p>
@@ -56,5 +56,10 @@ p {
 .date {
   align-self: flex-start;
   font-size: 14px;
+}
+h4 {
+  font-size: 1.17em;
+  font-weight: 400;
+  margin: 1em 0;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <div id="bio" class="content">
-    <h2>Bio</h2>
+  <div id="bio" class="section">
+    <h2 class="section-title">Bio</h2>
     <div>
       <p>Bristol born and raised, Neil Maggs is a descendent of a family of
         ironmongers who used to run a shop on Stapleton Road, Eastville, five
@@ -83,41 +83,9 @@ export default {
   background: #82AC9F;
   color: #fff;
   text-align: justify;
-  display: flex;
-  min-height: 100vh;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
 
-  &.content {
-    justify-content: flex-start;
-    padding: 60px;
-
-    > div {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: left;
-      padding: 0 80px;
-    }
-
-    h2 {
-      font-size: 36px;
-      text-transform: uppercase;
-      margin-top: 0;
-      font-weight: normal;
-      padding-bottom: 20px;
-      text-align: center;
-      width: 80%;
-      align-self: center;
-      border-bottom: 2px solid #fff;
-    }
-
-    p {
-      line-height: 26px;
-      font-size: 16px;
-    }
+  h2 {
+    border-color: #fff;
   }
 }
 </style>

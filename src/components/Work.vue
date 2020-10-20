@@ -1,9 +1,9 @@
 <template>
-  <div id="work" class="content">
-    <h2>Work</h2>
+  <div id="work" class="section">
+    <h2 class="section-title">Work</h2>
     <div>
     </div>
-    <div>
+    <div class="latest">
       <h3>Latest</h3>
       <div class="articles">
         <Article
@@ -163,52 +163,11 @@ export default {
 
 <style scoped lang="scss">
 #work {
-  color: #272727;
-  display: flex;
-  min-height: 100vh;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-  &.content {
-    justify-content: flex-start;
-    padding: 60px 40px;
-
-    > div:not(.gallery) {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      width: 100%;
-    }
-
-    h2 {
-      font-size: 36px;
-      text-transform: uppercase;
-      margin-top: 0;
-      font-weight: normal;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #fff;
-      text-align: center;
-      width: 80%;
-      align-self: center;
-      border-bottom: 2px solid #272727;
-    }
-
-    h3 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    h4 {
-      margin-bottom: 0;
-    }
-    p {
-      line-height: 26px;
-      font-size: 16px;
-    }
+  &.section {
+    padding: 3em;
   }
 
-  .awards p {
+  .latest h3 {
     margin-bottom: 0;
   }
 
@@ -218,20 +177,20 @@ export default {
     justify-content: space-around;
   }
 
+  .awards p {
+    margin-bottom: 0;
+  }
+
   .gallery {
     margin-top: 60px;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: center;
 
     .image {
-      color: #fff;
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin: 5px;
+      margin: 1em;
       img {
         max-width: 250px;
         max-height: 300px;

@@ -1,7 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css');
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: ghostwhite;
+  color: #272727;
+}
+
+h1, h2, h3 {
+  font-weight: 400;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 28px;
+  margin: 1em 0;
+}
+
+h4 {
+  margin: 2em 0 1em 0;
+}
+
+p {
+  line-height: 26px;
+  font-size: 16px;
+  margin: 1em 0;
 }
 
 .container {
@@ -9,11 +47,15 @@
   margin: 0 auto;
 }
 
-body {
-  color: #272727;
-}
+.section {
+  padding: 3em 5em;
 
-p {
-  line-height: 26px;
-  font-size: 16px;
+  .section-title {
+    text-align: center;
+    width: 80%;
+    align-self: center;
+    border-bottom: 2px solid #272727;
+    padding-bottom: 20px;
+    margin: 0 auto 1em auto;
+  }
 }
